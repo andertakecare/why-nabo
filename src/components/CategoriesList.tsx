@@ -5,51 +5,25 @@ import Category from "./Category";
 //Styled components
 const CategoriesListContainer = styled.div`
   display: flex;
+  flex-direction: column;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 15px;
   width: 70vw;
   max-width: 70%;
   margin: 20px auto;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
 `;
 
-const CategoryName = styled.h3`
-  margin: 0 10px 0 0;
-  color: #333;
-  border-right: 1px solid #ddd;
-  padding-right: 10px;
-  text-align: center;
-  flex: 1;
-`;
+const CategoriesListHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
 
-const CategoryInfo = styled.p`
-  margin: 0 10px;
-  color: #555;
-  border-right: 1px solid #ddd;
-  padding-right: 10px;
-  text-align: center;
-  flex: 1;
-
-  &:last-child {
-    border-right: none;
+  h2 {
+    flex: 1;
+    text-align: center;
   }
-`;
-
-// Add prop types for the Remaining component
-interface RemainingProps {
-  remaining: number;
-}
-
-// Dynamically color "remaining" based on value
-const Remaining = styled(CategoryInfo)<RemainingProps>`
-  color: ${(props) =>
-    props.remaining >= 0
-      ? "#28a745"
-      : "#dc3545"}; // Dynamically color the remaining based on value
 `;
 
 const CategoriesList: React.FC = () => {
@@ -69,12 +43,21 @@ const CategoriesList: React.FC = () => {
 
   return (
     <CategoriesListContainer>
-        {harcodedCategories.map((category, index)) => {
-            <Category>
-
-            </Category>
-
-        }}
+      <CategoriesListHeader>
+        <h2>CATEGORIES</h2>
+        <h2>BUDGETED</h2>
+        <h2>SPENT</h2>
+        <h2>REMAINING</h2>
+      </CategoriesListHeader>
+      {/* Rendering actual Categories */}
+      {harcodedCategories.map((category, index) => (
+        <Category
+          key={index}
+          categoryName={category.name}
+          budgeted={category.budgeted}
+          spent={category.spent}
+        />
+      ))}
     </CategoriesListContainer>
   );
 };

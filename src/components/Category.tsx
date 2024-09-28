@@ -7,9 +7,7 @@ const CategoryContainer = styled.div`
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 15px;
-  width: 70vw;
-  max-width: 70%;
-  margin: 20px auto;
+  max-width: 100%;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -64,11 +62,6 @@ const Category: React.FC<CategoryProps> = ({
   spent
 }) => {
     const remaining = budgeted - spent;
-  //   // provisional hardcoded data
-  //   const categoryName = "Groceries";
-  //   const budgeted = 500;
-  //   const spent = 150;
-  //   const remaining = budgeted - spent;
 
   return (
     <CategoryContainer>
