@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import Category from "./Category";
 
 //Styled components
-const CategoryContainer = styled.div`
+const CategoriesListContainer = styled.div`
   display: flex;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -51,33 +52,31 @@ const Remaining = styled(CategoryInfo)<RemainingProps>`
       : "#dc3545"}; // Dynamically color the remaining based on value
 `;
 
-//Define props for the Category component
-interface CategoryProps {
-  categoryName: string;
-  budgeted: number;
-  spent: number;
-}
-
-const Category: React.FC<CategoryProps> = ({
-  categoryName,
-  budgeted,
-  spent
-}) => {
-    const remaining = budgeted - spent;
-  //   // provisional hardcoded data
-  //   const categoryName = "Groceries";
-  //   const budgeted = 500;
-  //   const spent = 150;
-  //   const remaining = budgeted - spent;
+const CategoriesList: React.FC = () => {
+  // provisional hardcoded data
+  const harcodedCategories = [
+    {
+      name: "Groceries",
+      budgeted: 500,
+      spent: 150,
+    },
+    {
+      name: "Rent",
+      budgeted: 1000,
+      spent: 350,
+    },
+  ];
 
   return (
-    <CategoryContainer>
-      <CategoryName>{categoryName}</CategoryName>
-      <CategoryInfo>${budgeted}</CategoryInfo>
-      <CategoryInfo>${spent}</CategoryInfo>
-      <Remaining remaining={remaining}>${remaining}</Remaining>
-    </CategoryContainer>
+    <CategoriesListContainer>
+        {harcodedCategories.map((category, index)) => {
+            <Category>
+
+            </Category>
+
+        }}
+    </CategoriesListContainer>
   );
 };
 
-export default Category;
+export default CategoriesList;
