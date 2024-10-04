@@ -1,3 +1,6 @@
+##why-nabo
+This is a an application to track your available money in different budget categories.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
